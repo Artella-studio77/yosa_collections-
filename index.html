@@ -501,7 +501,7 @@ function renderProducts(list){
      <div class="info">
        <h3>${escapeHTML(p.name || "منتج Yaso")}</h3>
        <div style="color:#d79624;font-size:13px">★★★★★</div>
-       <div class="price">${Number(p.prix || 0).toLocaleString("fr-DZ")} دج</div>
+       <div class="prix">${Number(p.prix || 0).toLocaleString("fr-DZ")} دج</div>
        <button class="add" onclick="addCart(${i},${JSON.stringify(list)})">
          أضيفي للسلة 🛍
        </button>
