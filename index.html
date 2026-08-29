@@ -482,14 +482,80 @@ async function loadProducts(){
     </div>`;
  }
 }
+function renderCart(){
+ const box=document.getElementById("cartItems");
 
-function renderProducts(list){
- const grid=document.getElementById("productsGrid");
- document.getElementById("count").textContent=list.length+" منتجات";
+ if(!cart.length){
+   box.innerHTML='<p style="text-align:center;padding:40px">السلة فارغة ♡</p>';
+ }else{
 
- if(!list.length){
-   grid.innerHTML='<div class="empty">لا توجد منتجات حالياً ♡</div>';
-   return;
+   box.innerHTML=cart.map((p,i)=>`
+    <div class="cartItem">
+
+      <img src="${escapeAttr(p.image_url)}">
+
+      <div style="flex:1">
+        <b>${escapeHTML(p.name)}</b>
+
+        <span>
+          ${Number(p.prix).toLocaleString("fr-DZ")} دج
+        </span>
+
+        <div style="
+          display:flex;
+          align-items:center;
+          gap:10px;
+          margin-top:8px;
+        ">
+
+          <button
+            onclick="changeQty(${i},-1)"
+            style="
+              width:28px;
+              height:28px;
+              border:1px solid #e5d4bb;
+              border-radius:50%;
+              background:#fff;
+              cursor:pointer;
+            ">−</button>
+
+          <b>${p.qty}</b>
+
+          <button
+            onclick="changeQty(${i},1)"
+            style="
+              width:28px;
+              height:28px;
+              border:1px solid #e5d4bb;
+              border-radius:50%;
+              background:#fff;
+              cursor:pointer;
+            ">+</button>
+
+        </div>
+      </div>
+
+      <button
+        onclick="removeCart(${i})"
+        style="
+          border:0;
+          background:none;
+          color:#a55;
+          font-size:20px;
+          cursor:pointer;
+        ">×</button>
+
+    </div>
+   `).join("");
+ }
+
+ document.getElementById("total").textContent =
+ cart.reduce(
+   (sum,p)=>sum+(Number(p.prix)||0)*p.qty,
+   0
+ ).toLocaleString("fr-DZ")+" دج";
+}
+
  }
 
  grid.innerHTML=list.map((p,i)=>`
@@ -510,14 +576,26 @@ function renderProducts(list){
    </article>
  `).join("");
 }
+ function addCart(index){
+ const p = products[index];
 
-function addCart(index,list){
- const p=list[index];
- const found=cart.find(x=>x.name===p.name);
- if(found) found.qty++;
- else cart.push({...p,qty:1});
+ if(!p) return;
+
+ const found = cart.find(x => x.id === p.id);
+
+ if(found){
+   found.qty++;
+ }else{
+   cart.push({
+     ...p,
+     qty:1
+   });
+ }
+
  renderCart();
  openCart();
+}
+
 }
 
 function renderCart(){
