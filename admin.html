@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Yaso Collection — لوحة التحكم</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
 body{font-family:Cairo,sans-serif;background:#f5eee4;color:#382617;padding:20px}
 .panel{background:#fffaf4;border:1px solid #e4d2b8;border-radius:25px;padding:25px;max-width:600px;margin:auto;box-shadow:0 10px 30px #65481e14}
@@ -12,62 +13,319 @@ h1{color:#a87325;text-align:center;margin-bottom:25px}
 label{display:block;font-weight:700;margin-bottom:8px}
 input{width:100%;padding:12px;border:1px solid #d9c5a7;border-radius:12px;margin-bottom:20px;font-family:inherit}
 button{width:100%;background:#a87325;color:white;border:0;border-radius:12px;padding:15px;font-weight:700;font-size:18px;cursor:pointer}
-#msg{text-align:center;font-weight:bold;margin-top:15px}
+button:disabled{opacity:.6}
+#msg{text-align:center;font-weight:bold;margin-top:15px;line-height:1.8}
 a{display:block;text-align:center;margin-top:20px;color:#a87325}
+.fileBox{
+border:2px dashed #d9c5a7;
+border-radius:15px;
+padding:18px;
+text-align:center;
+margin-bottom:20px;
+cursor:pointer;
+background:#fffdf9;
+color:#8a642e
+}
+.fileBox input{display:none}
+#preview{
+display:none;
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:15px;
+margin:0 auto 20px;
+border:1px solid #e4d2b8
+}
 </style>
 </head>
+
 <body>
+
 <div class="panel">
-  <h1>إدارة المنتجات</h1>
-  <label>اسم المنتج</label>
-  <input type="text" id="pName" placeholder="مثال: فستان">
-  <label>السعر (دج)</label>
-  <input type="number" id="pPrix" placeholder="3500">
-  <label>رابط الصورة</label>
-  <input type="url" id="pImg" placeholder="https://...">
-  <button onclick="addProduct()">نشر المنتج ✦</button>
-  <div id="msg"></div>
-  <a href="index.html">العودة للموقع</a>
+
+<h1>إدارة المنتجات</h1>
+
+<label>اسم المنتج</label>
+<input type="text" id="pName" placeholder="مثال: فستان">
+
+<label>السعر (دج)</label>
+<input type="number" id="pPrix" placeholder="3500" min="0">
+
+<label>صورة المنتج</label>
+
+<label class="fileBox">
+📷 اضغطي هنا لاختيار صورة من معرض الهاتف
+<input type="file" id="pFile" accept="image/*">
+</label>
+
+<img id="preview">
+
+<button id="publishBtn" onclick="addProduct()">
+نشر المنتج ✦
+</button>
+
+<div id="msg"></div>
+
+<a href="index.html">العودة للموقع</a>
+
 </div>
 
 <script>
-const SUPABASE_URL = "https://xfioqgckubqmhmjdewda.supabase.co";
-const SUPABASE_KEY = "sb_publishable_ixEiPYOG9BPb9tUM1Eplcw_q1so-64v";
+
+const SUPABASE_URL =
+"https://xfioqgckubqmhmjdewda.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_ixEiPYOG9BPb9tUM1Eplcw_q1so-64v";
+
 const SCHEMA = "public";
-const TABLE = "yaso.collection"; // بدون النقطة في النهاية
+const TABLE = "yaso.collection";
 
-async function addProduct() {
-  const name = document.getElementById('pName').value;
-  const prix = document.getElementById('pPrix').value;
-  const image_url = document.getElementById('pImg').value;
-  const msg = document.getElementById('msg');
+const API =
+`${SUPABASE_URL}/rest/v1/${TABLE}`;
 
-  if(!name || !prix || !image_url) {
-    msg.style.color = "red"; msg.innerText = "املأ جميع الحقول!"; return;
-  }
+let selectedImage = "";
 
-  try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/${TABLE}`, {
-      method: "POST",
-      headers: {
-        "apikey": SUPABASE_KEY,
-        "Authorization": "Bearer " + SUPABASE_KEY,
-        "Content-Type": "application/json",
-        "Accept-Profile": SCHEMA,
-        "Content-Profile": SCHEMA
-      },
-      body: JSON.stringify([{ name: name, prix: Number(prix), image_url: image_url }])
-    });
+/* اختيار الصورة من المعرض */
 
-    if (!res.ok) throw new Error(await res.text());
+document.getElementById("pFile").addEventListener("change", function(){
 
-    msg.style.color = "green";
-    msg.innerText = "تم النشر بنجاح! ✨";
-  } catch (err) {
-    msg.style.color = "red";
-    msg.innerText = "خطأ: " + err.message;
-  }
+const file = this.files[0];
+
+if(!file) return;
+
+if(!file.type.startsWith("image/")){
+showMsg("اختاري ملف صورة فقط.", "red");
+return;
 }
+
+const reader = new FileReader();
+
+reader.onload = function(e){
+
+selectedImage = e.target.result;
+
+const preview =
+document.getElementById("preview");
+
+preview.src = selectedImage;
+preview.style.display = "block";
+
+showMsg("تم اختيار الصورة ✓", "green");
+
+};
+
+reader.readAsDataURL(file);
+
+});
+
+
+/*
+ضغط الصورة قبل حفظها.
+هذا يجعل الصورة أصغر حتى لا تصبح قاعدة البيانات ضخمة.
+*/
+
+function compressImage(dataURL){
+
+return new Promise((resolve)=>{
+
+const img = new Image();
+
+img.onload = function(){
+
+const MAX = 1200;
+
+let width = img.width;
+let height = img.height;
+
+if(width > MAX || height > MAX){
+
+if(width > height){
+
+height = Math.round(height * MAX / width);
+width = MAX;
+
+}else{
+
+width = Math.round(width * MAX / height);
+height = MAX;
+
+}
+
+}
+
+const canvas = document.createElement("canvas");
+
+canvas.width = width;
+canvas.height = height;
+
+const ctx = canvas.getContext("2d");
+
+ctx.drawImage(img,0,0,width,height);
+
+/*
+JPEG بجودة جيدة وحجم أصغر
+*/
+
+resolve(
+canvas.toDataURL("image/jpeg",0.82)
+);
+
+};
+
+img.src = dataURL;
+
+});
+
+}
+
+
+/* نشر المنتج */
+
+async function addProduct(){
+
+const name =
+document.getElementById("pName").value.trim();
+
+const prix =
+document.getElementById("pPrix").value;
+
+const msg =
+document.getElementById("msg");
+
+const button =
+document.getElementById("publishBtn");
+
+
+if(!name || !prix || !selectedImage){
+
+showMsg(
+"املئي الاسم والسعر واختاري صورة المنتج.",
+"red"
+);
+
+return;
+
+}
+
+
+button.disabled = true;
+button.innerText = "جاري نشر المنتج...";
+
+
+try{
+
+/* ضغط الصورة */
+
+const image_url =
+await compressImage(selectedImage);
+
+
+/* إرسال المنتج إلى Supabase */
+
+const res = await fetch(API,{
+
+method:"POST",
+
+headers:{
+
+"apikey":SUPABASE_KEY,
+
+"Authorization":
+"Bearer " + SUPABASE_KEY,
+
+"Content-Type":
+"application/json",
+
+"Accept":
+"application/json",
+
+"Accept-Profile":
+SCHEMA,
+
+"Content-Profile":
+SCHEMA,
+
+"Prefer":
+"return=representation"
+
+},
+
+body:JSON.stringify([{
+
+name:name,
+
+prix:Number(prix),
+
+image_url:image_url
+
+}])
+
+});
+
+
+const responseText = await res.text();
+
+
+if(!res.ok){
+
+throw new Error(responseText);
+
+}
+
+
+/*
+لا نقول "تم النشر" إلا بعد أن
+تؤكد Supabase نجاح العملية.
+*/
+
+showMsg(
+"تم نشر المنتج بنجاح! ✨",
+"green"
+);
+
+
+/* تنظيف الحقول */
+
+document.getElementById("pName").value="";
+document.getElementById("pPrix").value="";
+document.getElementById("pFile").value="";
+
+selectedImage="";
+
+document.getElementById("preview").style.display="none";
+
+
+}catch(err){
+
+console.error(err);
+
+showMsg(
+"لم يتم نشر المنتج ❌<br>"+err.message,
+"red"
+);
+
+}finally{
+
+button.disabled=false;
+button.innerText="نشر المنتج ✦";
+
+}
+
+}
+
+
+function showMsg(text,color){
+
+const msg =
+document.getElementById("msg");
+
+msg.style.color=color;
+msg.innerHTML=text;
+
+}
+
 </script>
+
 </body>
 </html>
