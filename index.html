@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -6,655 +6,1777 @@
 <title>Yaso Collection</title>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
 
 *{box-sizing:border-box;margin:0;padding:0}
+
 :root{
- --bg:#f5eee4;
- --cream:#fffaf2;
- --gold:#a87425;
- --gold2:#c4934b;
- --dark:#382617;
- --line:#e5d4bb;
- --shadow:0 15px 45px #74552a18;
+--bg:#f5eee4;
+--cream:#fffaf2;
+--gold:#a87425;
+--gold2:#c4934b;
+--dark:#382617;
+--line:#e5d4bb;
+--shadow:0 15px 45px #74552a18;
 }
+
 body{
- background:
- radial-gradient(circle at 15% 10%,#fffdf8 0,transparent 28%),
- radial-gradient(circle at 90% 80%,#e9d5b7 0,transparent 25%),
- var(--bg);
- color:var(--dark);
- font-family:Cairo,sans-serif;
- min-height:100vh;
+background:
+radial-gradient(circle at 15% 10%,#fffdf8 0,transparent 28%),
+radial-gradient(circle at 90% 80%,#e9d5b7 0,transparent 25%),
+var(--bg);
+color:var(--dark);
+font-family:Cairo,sans-serif;
+min-height:100vh;
 }
+
 body:before{
- content:"";
- position:fixed;inset:0;pointer-events:none;opacity:.22;
- background-image:
- radial-gradient(#b88945 1px,transparent 1px);
- background-size:35px 35px;
- mask-image:linear-gradient(to bottom,transparent,#000,transparent);
+content:"";
+position:fixed;
+inset:0;
+pointer-events:none;
+opacity:.22;
+background-image:
+radial-gradient(#b88945 1px,transparent 1px);
+background-size:35px 35px;
+mask-image:linear-gradient(to bottom,transparent,#000,transparent);
 }
-.container{width:min(1200px,94%);margin:auto}
+
+.container{
+width:min(1200px,94%);
+margin:auto
+}
 
 /* HEADER */
+
 header{
- position:sticky;top:12px;z-index:20;
- margin:15px auto;
- width:min(1200px,94%);
- background:#fffaf4e8;
- backdrop-filter:blur(15px);
- border:1px solid var(--line);
- border-radius:24px;
- box-shadow:var(--shadow);
+position:sticky;
+top:12px;
+z-index:20;
+margin:15px auto;
+width:min(1200px,94%);
+background:#fffaf4e8;
+backdrop-filter:blur(15px);
+border:1px solid var(--line);
+border-radius:24px;
+box-shadow:var(--shadow);
 }
+
 .nav{
- min-height:78px;padding:10px 25px;
- display:flex;align-items:center;justify-content:space-between;
- gap:25px;
+min-height:78px;
+padding:10px 25px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:25px;
 }
-.logo{text-align:center;line-height:1}
+
+.logo{
+text-align:center;
+line-height:1
+}
+
 .logoMark{
- font-family:"Playfair Display";font-size:48px;
- color:#9a6721;
- letter-spacing:-12px;margin-left:8px;
- text-shadow:1px 2px 2px #6b451d55;
+font-family:"Playfair Display";
+font-size:48px;
+color:#9a6721;
+letter-spacing:-12px;
+margin-left:8px;
+text-shadow:1px 2px 2px #6b451d55;
 }
+
 .logoText{
- font-size:14px;font-weight:800;letter-spacing:2px;
- color:#87591e;margin-top:5px;
+font-size:14px;
+font-weight:800;
+letter-spacing:2px;
+color:#87591e;
+margin-top:5px;
 }
-.logoSub{font-size:7px;letter-spacing:2px;color:#92785b}
-.links{display:flex;gap:32px;align-items:center}
+
+.logoSub{
+font-size:7px;
+letter-spacing:2px;
+color:#92785b
+}
+
+.links{
+display:flex;
+gap:32px;
+align-items:center
+}
+
 .links a{
- color:var(--dark);text-decoration:none;font-weight:700;font-size:14px;
- position:relative;
+color:var(--dark);
+text-decoration:none;
+font-weight:700;
+font-size:14px;
+position:relative
 }
+
 .links a:after{
- content:"";position:absolute;bottom:-8px;right:0;width:0;height:2px;
- background:var(--gold);transition:.3s;
+content:"";
+position:absolute;
+bottom:-8px;
+right:0;
+width:0;
+height:2px;
+background:var(--gold);
+transition:.3s
 }
-.links a:hover:after{width:100%}
-.actions{display:flex;align-items:center;gap:14px}
+
+.links a:hover:after{
+width:100%
+}
+
+.actions{
+display:flex;
+align-items:center;
+gap:14px
+}
+
 .search{
- border:1px solid #d9c3a3;border-radius:30px;
- padding:10px 15px;background:#fffaf6;
- display:flex;align-items:center;gap:8px;
+border:1px solid #d9c3a3;
+border-radius:30px;
+padding:10px 15px;
+background:#fffaf6;
+display:flex;
+align-items:center;
+gap:8px
 }
+
 .search input{
- border:0;outline:0;background:transparent;width:140px;
- font-family:inherit;
+border:0;
+outline:0;
+background:transparent;
+width:140px;
+font-family:inherit
 }
+
 .iconBtn{
- width:40px;height:40px;border:0;background:transparent;
- color:var(--gold);font-size:23px;cursor:pointer;
+width:40px;
+height:40px;
+border:0;
+background:transparent;
+color:var(--gold);
+font-size:23px;
+cursor:pointer
 }
 
 /* HERO */
+
 .hero{
- min-height:480px;
- margin-top:25px;
- border:1px solid var(--line);
- border-radius:35px;
- background:
- linear-gradient(90deg,#fffaf4e8,#f7eddfcc),
- radial-gradient(circle at 15% 50%,#dfc09055,transparent 30%);
- box-shadow:var(--shadow);
- display:grid;grid-template-columns:1fr 1fr;
- overflow:hidden;
- position:relative;
+min-height:480px;
+margin-top:25px;
+border:1px solid var(--line);
+border-radius:35px;
+background:
+linear-gradient(90deg,#fffaf4e8,#f7eddfcc),
+radial-gradient(circle at 15% 50%,#dfc09055,transparent 30%);
+box-shadow:var(--shadow);
+display:grid;
+grid-template-columns:1fr 1fr;
+overflow:hidden;
+position:relative
 }
+
 .hero:before,.hero:after{
- content:"♡";position:absolute;color:#c4924c38;
- font-size:150px;font-family:serif;
+content:"♡";
+position:absolute;
+color:#c4924c38;
+font-size:150px;
+font-family:serif
 }
-.hero:before{left:25px;top:20px}
-.hero:after{right:20px;bottom:-30px}
+
+.hero:before{
+left:25px;
+top:20px
+}
+
+.hero:after{
+right:20px;
+bottom:-30px
+}
+
 .heroArt{
- display:flex;align-items:center;justify-content:center;
- padding:45px;position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:45px;
+position:relative
 }
+
 .artCircle{
- width:350px;height:350px;border-radius:50%;
- border:1px solid #d3ad70;
- box-shadow:inset 0 0 0 12px #ffffff55,0 15px 45px #8d632522;
- display:flex;align-items:center;justify-content:center;
- position:relative;
+width:350px;
+height:350px;
+border-radius:50%;
+border:1px solid #d3ad70;
+box-shadow:
+inset 0 0 0 12px #ffffff55,
+0 15px 45px #8d632522;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative
 }
+
 .artCircle:before{
- content:"";position:absolute;width:290px;height:290px;border-radius:50%;
- border:1px dashed #c59a5e;
+content:"";
+position:absolute;
+width:290px;
+height:290px;
+border-radius:50%;
+border:1px dashed #c59a5e
 }
+
 .bigLogo{
- font-family:"Playfair Display";font-size:110px;
- color:#a87529;letter-spacing:-25px;
- text-shadow:3px 5px 3px #5c3d1b45;
+font-family:"Playfair Display";
+font-size:110px;
+color:#a87529;
+letter-spacing:-25px;
+text-shadow:3px 5px 3px #5c3d1b45
 }
-.flower{position:absolute;font-size:45px;color:#bd8c48}
-.f1{top:20px;left:25px}.f2{bottom:25px;right:15px}
+
+.flower{
+position:absolute;
+font-size:45px;
+color:#bd8c48
+}
+
+.f1{
+top:20px;
+left:25px
+}
+
+.f2{
+bottom:25px;
+right:15px
+}
+
 .heroText{
- display:flex;flex-direction:column;justify-content:center;
- padding:45px;z-index:2;
+display:flex;
+flex-direction:column;
+justify-content:center;
+padding:45px;
+z-index:2
 }
+
 .welcome{
- letter-spacing:8px;color:#946325;font-size:12px;
- font-weight:700;margin-bottom:20px;
+letter-spacing:8px;
+color:#946325;
+font-size:12px;
+font-weight:700;
+margin-bottom:20px
 }
+
 .hero h1{
- font-size:clamp(45px,6vw,78px);
- line-height:1.1;margin-bottom:8px;
+font-size:clamp(45px,6vw,78px);
+line-height:1.1;
+margin-bottom:8px
 }
+
 .hero h2{
- font-size:clamp(25px,3vw,42px);
- color:#bd8b48;margin-bottom:18px;
+font-size:clamp(25px,3vw,42px);
+color:#bd8b48;
+margin-bottom:18px
 }
-.hero p{font-size:16px;color:#705b43;margin-bottom:28px}
-.buttons{display:flex;gap:14px;flex-wrap:wrap}
+
+.hero p{
+font-size:16px;
+color:#705b43;
+margin-bottom:28px
+}
+
+.buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap
+}
+
 .btn{
- border-radius:30px;padding:13px 30px;
- border:1px solid var(--gold);font-family:inherit;
- font-weight:700;cursor:pointer;font-size:14px;
- text-decoration:none;display:inline-block;
+border-radius:30px;
+padding:13px 30px;
+border:1px solid var(--gold);
+font-family:inherit;
+font-weight:700;
+cursor:pointer;
+font-size:14px;
+text-decoration:none;
+display:inline-block
 }
-.btnGold{background:linear-gradient(135deg,#8d5b18,#c18b39);color:white;box-shadow:0 8px 20px #99682030}
-.btnLight{background:#fffaf3;color:#68471f}
+
+.btnGold{
+background:linear-gradient(135deg,#8d5b18,#c18b39);
+color:white;
+box-shadow:0 8px 20px #99682030
+}
+
+.btnLight{
+background:#fffaf3;
+color:#68471f
+}
 
 /* STATS */
+
 .stats{
- display:grid;grid-template-columns:repeat(3,1fr);
- background:#fffaf5;border:1px solid var(--line);
- border-radius:24px;margin:18px 0 45px;
- box-shadow:var(--shadow);overflow:hidden;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+background:#fffaf5;
+border:1px solid var(--line);
+border-radius:24px;
+margin:18px 0 45px;
+box-shadow:var(--shadow);
+overflow:hidden
 }
-.stat{text-align:center;padding:18px;border-left:1px solid var(--line)}
-.stat:last-child{border:0}
-.stat b{display:block;font-size:27px;color:#704718}
-.stat span{font-size:13px;color:#836f58}
+
+.stat{
+text-align:center;
+padding:18px;
+border-left:1px solid var(--line)
+}
+
+.stat:last-child{
+border:0
+}
+
+.stat b{
+display:block;
+font-size:27px;
+color:#704718
+}
+
+.stat span{
+font-size:13px;
+color:#836f58
+}
 
 /* PRODUCTS */
+
 .sectionTitle{
- display:flex;align-items:end;justify-content:space-between;
- margin-bottom:20px;
+display:flex;
+align-items:end;
+justify-content:space-between;
+margin-bottom:20px
 }
-.sectionTitle h2{font-size:28px}
-.sectionTitle span{color:#a87936;font-size:13px}
+
+.sectionTitle h2{
+font-size:28px
+}
+
+.sectionTitle span{
+color:#a87936;
+font-size:13px
+}
+
 .products{
- display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px
 }
+
 .card{
- background:#fffaf4;border:1px solid var(--line);
- border-radius:22px;overflow:hidden;
- box-shadow:0 8px 25px #69471916;
- transition:.3s;
+background:#fffaf4;
+border:1px solid var(--line);
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 8px 25px #69471916;
+transition:.3s
 }
-.card:hover{transform:translateY(-7px);box-shadow:0 18px 35px #69471925}
-.pic{height:245px;position:relative;background:#ead9c1}
-.pic img{width:100%;height:100%;object-fit:cover;display:block}
+
+.card:hover{
+transform:translateY(-7px);
+box-shadow:0 18px 35px #69471925
+}
+
+.pic{
+height:245px;
+position:relative;
+background:#ead9c1
+}
+
+.pic img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block
+}
+
 .fav{
- position:absolute;top:12px;right:12px;
- width:37px;height:37px;border-radius:50%;
- border:1px solid #e2caa6;background:#fffaf4;
- color:#9d6b25;font-size:20px;cursor:pointer;
+position:absolute;
+top:12px;
+right:12px;
+width:37px;
+height:37px;
+border-radius:50%;
+border:1px solid #e2caa6;
+background:#fffaf4;
+color:#9d6b25;
+font-size:20px;
+cursor:pointer
 }
-.info{padding:14px}
-.info h3{font-size:16px;margin-bottom:5px}
-.price{font-size:20px;font-weight:800;margin-bottom:12px}
+
+.info{
+padding:14px
+}
+
+.info h3{
+font-size:16px;
+margin-bottom:5px
+}
+
+.prix{
+font-size:20px;
+font-weight:800;
+margin-bottom:12px
+}
+
 .add{
- width:100%;border:0;border-radius:25px;padding:10px;
- background:linear-gradient(135deg,#91601e,#bd8937);
- color:white;font-family:inherit;font-weight:700;cursor:pointer;
+width:100%;
+border:0;
+border-radius:25px;
+padding:10px;
+background:linear-gradient(135deg,#91601e,#bd8937);
+color:white;
+font-family:inherit;
+font-weight:700;
+cursor:pointer
 }
+
+.add:active{
+transform:scale(.97)
+}
+
 .empty{
- grid-column:1/-1;text-align:center;padding:70px;
- color:#967e62;
+grid-column:1/-1;
+text-align:center;
+padding:70px;
+color:#967e62
 }
 
 /* WHY */
+
 .why{
- margin:55px 0;
- display:grid;grid-template-columns:repeat(3,1fr);gap:18px;
+margin:55px 0;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
 }
+
 .whyBox{
- background:#fffaf5;border:1px solid var(--line);
- border-radius:25px;padding:25px;text-align:center;
+background:#fffaf5;
+border:1px solid var(--line);
+border-radius:25px;
+padding:25px;
+text-align:center
 }
-.whyBox .ico{font-size:35px;color:#b27d31;margin-bottom:10px}
-.whyBox h3{margin-bottom:6px}
-.whyBox p{font-size:12px;color:#806c56}
+
+.whyBox .ico{
+font-size:35px;
+color:#b27d31;
+margin-bottom:10px
+}
+
+.whyBox h3{
+margin-bottom:6px
+}
+
+.whyBox p{
+font-size:12px;
+color:#806c56
+}
 
 /* FOOTER */
-footer{
- border-top:1px solid var(--line);padding:35px 0;
- text-align:center;color:#806b52;
-}
-.social{font-size:24px;margin-top:10px;word-spacing:15px;color:#a6742c}
 
-/* ===== إضافات جديدة ===== */
-.admin-link{
- display:block; width:50px; height:50px; position:fixed; bottom:15px; left:15px;
- background:var(--gold); color:white; border-radius:50%; text-align:center;
- line-height:50px; font-size:24px; text-decoration:none; box-shadow:var(--shadow); opacity:0.4; z-index: 999;
+footer{
+border-top:1px solid var(--line);
+padding:35px 0;
+text-align:center;
+color:#806b52
 }
-.admin-link:hover{ opacity:1; }
+
+.social{
+font-size:24px;
+margin-top:10px;
+word-spacing:15px;
+color:#a6742c
+}
+
+/* ADMIN */
+
+.admin-link{
+display:block;
+width:50px;
+height:50px;
+position:fixed;
+bottom:15px;
+left:15px;
+background:var(--gold);
+color:white;
+border-radius:50%;
+text-align:center;
+line-height:50px;
+font-size:24px;
+text-decoration:none;
+box-shadow:var(--shadow);
+opacity:.4;
+z-index:999
+}
+
+.admin-link:hover{
+opacity:1
+}
+
+/* MARQUEE */
 
 .marquee-container{
- width: 100%; overflow: hidden; background: var(--gold); color: white;
- padding: 10px 0; margin-top: 25px; border-radius: 20px; direction: rtl;
-}
-.marquee {
- display: inline-block; white-space: nowrap; animation: scroll-right 30s linear infinite;
- font-size: 18px; font-weight: 700;
-}
-@keyframes scroll-right {
- 0% { transform: translateX(-100%); }
- 100% { transform: translateX(100%); }
+width:100%;
+overflow:hidden;
+background:var(--gold);
+color:white;
+padding:10px 0;
+margin-top:25px;
+border-radius:20px;
+direction:rtl
 }
 
-.reviews-section {
- margin: 50px 0;
- text-align: center;
+.marquee{
+display:inline-block;
+white-space:nowrap;
+animation:scroll-right 30s linear infinite;
+font-size:18px;
+font-weight:700
 }
-.reviews-title h2 { font-size: 26px; margin-bottom: 20px; color: var(--dark); }
-.reviews-grid {
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
- gap: 20px;
-}
-.review-img {
- width: 100%;
- border-radius: 15px;
- border: 1px solid var(--line);
- box-shadow: var(--shadow);
+
+@keyframes scroll-right{
+0%{transform:translateX(-100%)}
+100%{transform:translateX(100%)}
 }
 
 /* CART */
+
 .cartPanel{
- position:fixed;inset:0;z-index:50;
- background:#0005;display:none;
+position:fixed;
+inset:0;
+z-index:5000;
+background:#0005;
+display:none
 }
-.cartPanel.show{display:block}
+
+.cartPanel.show{
+display:block
+}
+
 .cart{
- position:absolute;right:0;top:0;height:100%;
- width:min(430px,92%);background:#fffaf4;
- padding:25px;box-shadow:-10px 0 35px #0002;
- overflow:auto;
+position:absolute;
+right:0;
+top:0;
+height:100%;
+width:min(430px,92%);
+background:#fffaf4;
+padding:25px;
+box-shadow:-10px 0 35px #0002;
+overflow:auto
 }
-.close{float:left;border:0;background:none;font-size:25px;color:#8c612b}
-.cart h2{margin:20px 0}
+
+.close{
+float:left;
+border:0;
+background:none;
+font-size:30px;
+color:#8c612b;
+cursor:pointer;
+width:auto;
+padding:0
+}
+
+.cart h2{
+margin:20px 0
+}
+
 .cartItem{
- display:flex;gap:12px;border-bottom:1px solid var(--line);
- padding:12px 0;align-items:center;
+display:flex;
+gap:12px;
+border-bottom:1px solid var(--line);
+padding:14px 0;
+align-items:center
 }
-.cartItem img{width:65px;height:65px;object-fit:cover;border-radius:12px}
-.cartItem b{display:block}
+
+.cartItem img{
+width:65px;
+height:65px;
+object-fit:cover;
+border-radius:12px
+}
+
+.cartInfo{
+flex:1
+}
+
+.cartInfo b{
+display:block;
+margin-bottom:4px
+}
+
+.qty{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:7px
+}
+
+.qty button{
+width:27px;
+height:27px;
+padding:0;
+font-size:17px;
+border-radius:50%;
+background:#fff;
+color:#80551e;
+border:1px solid var(--line);
+cursor:pointer
+}
+
+.remove{
+border:0;
+background:none;
+color:#a55;
+font-size:22px;
+cursor:pointer;
+width:auto;
+padding:5px
+}
+
 .total{
- margin-top:25px;font-size:20px;font-weight:800;
- display:flex;justify-content:space-between;
+margin-top:25px;
+font-size:20px;
+font-weight:800;
+display:flex;
+justify-content:space-between
+}
+
+.checkout{
+width:100%;
+margin-top:20px;
+background:linear-gradient(135deg,#8d5b18,#c18b39);
+color:white;
+border:0;
+border-radius:25px;
+padding:13px;
+font-family:inherit;
+font-weight:700;
+cursor:pointer
+}
+
+/* REVIEWS */
+
+.reviews-section{
+margin:50px 0;
+text-align:center
+}
+
+.reviews-title h2{
+font-size:26px;
+margin-bottom:20px;
+color:var(--dark)
+}
+
+.reviews-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:20px
+}
+
+.review-img{
+width:100%;
+border-radius:15px;
+border:1px solid var(--line);
+box-shadow:var(--shadow)
 }
 
 /* MOBILE */
+
 @media(max-width:850px){
- .links{display:none}
- .hero{grid-template-columns:1fr;min-height:auto}
- .heroArt{padding:35px 20px}
- .artCircle{width:260px;height:260px}
- .artCircle:before{width:215px;height:215px}
- .bigLogo{font-size:80px}
- .heroText{text-align:center;padding:25px}
- .buttons{justify-content:center}
- .products{grid-template-columns:repeat(2,1fr)}
- .pic{height:210px}
- .why{grid-template-columns:1fr}
- .search{display:none}
- .marquee { font-size: 14px; }
+
+.links{
+display:none
 }
+
+.hero{
+grid-template-columns:1fr;
+min-height:auto
+}
+
+.heroArt{
+padding:35px 20px
+}
+
+.artCircle{
+width:260px;
+height:260px
+}
+
+.artCircle:before{
+width:215px;
+height:215px
+}
+
+.bigLogo{
+font-size:80px
+}
+
+.heroText{
+text-align:center;
+padding:25px
+}
+
+.buttons{
+justify-content:center
+}
+
+.products{
+grid-template-columns:repeat(2,1fr)
+}
+
+.pic{
+height:210px
+}
+
+.why{
+grid-template-columns:1fr
+}
+
+.search{
+display:none
+}
+
+.marquee{
+font-size:14px
+}
+
+}
+
 @media(max-width:480px){
- .nav{padding:8px 14px}
- .products{gap:10px}
- .pic{height:175px}
- .info h3{font-size:13px}
- .price{font-size:17px}
- .hero h1{font-size:42px}
- .stats{margin-bottom:30px}
+
+.nav{
+padding:8px 14px
 }
+
+.products{
+gap:10px
+}
+
+.pic{
+height:175px
+}
+
+.info h3{
+font-size:13px
+}
+
+.prix{
+font-size:17px
+}
+
+.hero h1{
+font-size:42px
+}
+
+.stats{
+margin-bottom:30px
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
- <nav class="nav">
-   <div class="actions">
-     <button class="iconBtn" onclick="openCart()">♡</button>
-     <button class="iconBtn" onclick="openCart()">♧</button>
-   </div>
-div class="logo">
-     <div class="logoMark">YS</div>
-<div class="artCircle">
-   alt="Yaso Collection">
-   <span class="flower f2">✿</span>
+
+<nav class="nav">
+
+<div class="actions">
+
+<button class="iconBtn" onclick="openCart()">♡</button>
+
+<button class="iconBtn" onclick="openCart()">♧</button>
+
 </div>
- 
 
-   <div class="links">
-     <a href="#">الرئيسية</a>
-     <a href="#products">المتجر</a>
-     <a href="#products">التصنيفات</a>
-     <a href="#why">مميزتنا</a>
-     <a href="#contact">تواصل معنا</a>
-   </div>
 
-   <div class="search">
-     <input id="searchInput" placeholder="إبحث عن منتج..." oninput="searchProducts()">
-     🔍
-   </div>
- </nav>
+<!-- شعارك -->
+
+<div class="logo">
+
+<div class="logoMark">YS</div>
+
+<div class="logoText">
+YASO COLLECTION
+</div>
+
+<div class="logoSub">
+MODERN. LUXURY. EVENTS.
+</div>
+
+</div>
+
+
+<div class="links">
+
+<a href="#">الرئيسية</a>
+
+<a href="#products">المتجر</a>
+
+<a href="#products">التصنيفات</a>
+
+<a href="#why">مميزتنا</a>
+
+<a href="#contact">تواصل معنا</a>
+
+</div>
+
+
+<div class="search">
+
+<input
+id="searchInput"
+placeholder="إبحث عن منتج..."
+oninput="searchProducts()">
+
+🔍
+
+</div>
+
+</nav>
+
 </header>
+
 
 <main class="container">
 
-<section class="hero">
- <div class="heroArt">
-   <div class="artCircle">
-     <span class="flower f1">✿</span>
-     <div class="bigLogo">YS</div>
-     <span class="flower f2">✿</span>
-   </div>
- </div>
 
- <div class="heroText">
-   <div class="welcome">W E L C O M E &nbsp; T O</div>
-   <h1> yaso.collection </h1>
-   <h1>إطلالتك</h1>
-   <h2>مميزة تبدأ من هنا ♡</h2>
-   <p>Élégance, féminité et qualité</p>
-   <div class="buttons">
-     <a class="btn btnGold" href="#products">✦ اكتشفي المجموعة</a>
-     <a class="btn btnLight" href="#contact">تواصلي معنا</a>
-   </div>
- </div>
+<section class="hero">
+
+<div class="heroArt">
+
+<div class="artCircle">
+
+<span class="flower f1">✿</span>
+
+<div class="bigLogo">
+YS
+</div>
+
+<span class="flower f2">✿</span>
+
+</div>
+
+</div>
+
+
+<div class="heroText">
+
+<div class="welcome">
+W E L C O M E &nbsp; T O
+</div>
+
+<h1>yaso.collection</h1>
+
+<h1>إطلالتك</h1>
+
+<h2>مميزة تبدأ من هنا ♡</h2>
+
+<p>
+Élégance, féminité et qualité
+</p>
+
+<div class="buttons">
+
+<a class="btn btnGold" href="#products">
+✦ اكتشفي المجموعة
+</a>
+
+<a class="btn btnLight" href="#contact">
+تواصلي معنا
+</a>
+
+</div>
+
+</div>
+
 </section>
+
 
 <section class="stats">
- <div class="stat"><b>01</b><span>رضا عملائنا ♕</span></div>
- <div class="stat"><b>02</b><span>جودة مضمونة ◇</span></div>
- <div class="stat"><b>03</b><span>سنوات من الأناقة ☆</span></div>
+
+<div class="stat">
+<b>01</b>
+<span>رضا عملائنا ♕</span>
+</div>
+
+<div class="stat">
+<b>02</b>
+<span>جودة مضمونة ◇</span>
+</div>
+
+<div class="stat">
+<b>03</b>
+<span>سنوات من الأناقة ☆</span>
+</div>
+
 </section>
+
 
 <section id="products">
- <div class="sectionTitle">
-   <h2>الأكثر اختياراً ✨</h2>
-   <span id="count"></span>
- </div>
- <div class="products" id="productsGrid">
-   <div class="empty">جاري تحميل المجموعة...</div>
- </div>
+
+<div class="sectionTitle">
+
+<h2>
+الأكثر اختياراً ✨
+</h2>
+
+<span id="count"></span>
+
+</div>
+
+
+<div class="products" id="productsGrid">
+
+<div class="empty">
+جاري تحميل المجموعة...
+</div>
+
+</div>
+
 </section>
+
 
 <section class="why" id="why">
- <div class="whyBox">
-   <div class="ico">♢</div>
-   <h3>أناقة ناعمة</h3>
-   <p>تصاميم عصرية بلمسة أنثوية تناسب ذوقك.</p>
- </div>
- <div class="whyBox">
-   <div class="ico">♕</div>
-   <h3>جودة مختارة</h3>
-   <p>نختار لك الأفضل بجودة عالية.</p>
- </div>
- <div class="whyBox">
-   <div class="ico">♧</div>
-   <h3>خدمة قريبة</h3>
-   <p>تواصلي معنا في أي وقت ونحن هنا لخدمتك.</p>
- </div>
+
+<div class="whyBox">
+
+<div class="ico">♢</div>
+
+<h3>أناقة ناعمة</h3>
+
+<p>
+تصاميم عصرية بلمسة أنثوية تناسب ذوقك.
+</p>
+
+</div>
+
+
+<div class="whyBox">
+
+<div class="ico">♕</div>
+
+<h3>جودة مختارة</h3>
+
+<p>
+نختار لك الأفضل بجودة عالية.
+</p>
+
+</div>
+
+
+<div class="whyBox">
+
+<div class="ico">♧</div>
+
+<h3>خدمة قريبة</h3>
+
+<p>
+تواصلي معنا في أي وقت ونحن هنا لخدمتك.
+</p>
+
+</div>
+
 </section>
 
 
-<!-- الشريط المتحرك في الأسفل (قبل الفوتر) -->
 <div class="marquee-container">
-  <div class="marquee">
-    ♡ شكراً على الجودة الرائعة! &nbsp; • &nbsp; ✨ أحسن متجر، كلش حاجة تووب الله يبارك! &nbsp; • &nbsp; 💖 لقد وصلني الطلب بسرعة والقماش فخم! &nbsp; • &nbsp; 🌸 كملتي ذوقي، ما شاء الله عليكم! &nbsp; • &nbsp; 🛍️ تعاملهم راقي والتوصيل سريع جداً.
-  </div>
+
+<div class="marquee">
+
+♡ شكراً على الجودة الرائعة!
+&nbsp; • &nbsp;
+✨ أحسن متجر، كلش حاجة تووب الله يبارك!
+&nbsp; • &nbsp;
+💖 لقد وصلني الطلب بسرعة والقماش فخم!
+&nbsp; • &nbsp;
+🌸 كملتي ذوقي، ما شاء الله عليكم!
+&nbsp; • &nbsp;
+🛍️ تعاملهم راقي والتوصيل سريع جداً.
+
 </div>
+
+</div>
+
 
 <footer id="contact">
- <div class="logoText">YASO COLLECTION</div>
- <p>للأناقة عنوان... ولذوقك مكان ♡</p>
- <div class="social">
-    <!-- ضعي روابط حساباتك الحقيقية هنا -->
-    <a href="https://wa.me/213672936594" target="_blank">🟢 واتساب</a> | 
-    <a href="https://facebook.com/YASO.COLLECTION" target="_blank">📘 فيسبوك</a> | 
-    <a href="https://www.instagram.com/yaso.collectoin?igsi=MTRiZzc0M3BnZ242ag==" target="_blank">📸 انستغرام</a>
- </div>
-</footer>
 
-<!-- زر يظهر لكِ أنتِ فقط للدخول إلى لوحة التحكم -->
-<a href="admin.html" class="admin-link">⚙</a>
-
-<div class="cartPanel" id="cartPanel" onclick="closeCart(event)">
- <div class="cart" onclick="event.stopPropagation()">
- <button class="close" onclick="closeCart()">×</button>
-   <h2>سلتي 🛍</h2>
-   <div id="cartItems"></div>
-   <div class="total">
-     <span>المجموع</span>
-     <span id="total">0 دج</span>
-   </div>
- </div>
+<div class="logoText">
+YASO COLLECTION
 </div>
 
+<p>
+للأناقة عنوان... ولذوقك مكان ♡
+</p>
+
+<div class="social">
+
+<a href="https://wa.me/213672936594" target="_blank">
+🟢 واتساب
+</a>
+
+|
+
+<a href="https://facebook.com/YASO.COLLECTION" target="_blank">
+📘 فيسبوك
+</a>
+
+|
+
+<a href="https://www.instagram.com/yaso.collectoin?igsi=MTRiZzc0M3BnZ242ag==" target="_blank">
+📸 انستغرام
+</a>
+
+</div>
+
+</footer>
+
+</main>
+
+
+<a href="admin.html" class="admin-link">
+⚙
+</a>
+
+
+<!-- CART -->
+
+<div
+class="cartPanel"
+id="cartPanel"
+onclick="closeCart(event)"
+>
+
+<div
+class="cart"
+onclick="event.stopPropagation()"
+>
+
+<button
+class="close"
+onclick="closeCart()">
+×
+</button>
+
+<h2>
+سلتي 🛍
+</h2>
+
+<div id="cartItems"></div>
+
+<div class="total">
+
+<span>
+المجموع
+</span>
+
+<span id="total">
+0 دج
+</span>
+
+</div>
+
+<button class="checkout" onclick="checkout()">
+إتمام الطلب عبر واتساب
+</button>
+
+</div>
+
+</div>
+
+
 <script>
-const SUPABASE_URL = "https://xfioqgckubqmhmjdewda.supabase.co";
-const SUPABASE_KEY = "sb_publishable_ixEiPYOG9BPb9tUM1Eplcw_q1so-64v";
-const SCHEMA = "public";
-const TABLE = "yaso.collection"; // بدون النقطة في النهاية
+
+const SUPABASE_URL =
+"https://xfioqgckubqmhmjdewda.supabase.co";
+
+const SUPABASE_KEY =
+"sb_publishable_ixEiPYOG9BPb9tUM1Eplcw_q1so-64v";
+
+const SCHEMA =
+"public";
+
+const TABLE =
+"yaso.collection";
+
 
 let products = [];
+
 let cart = [];
 
+
+/* =========================
+SUPABASE
+========================= */
+
 const headers = {
- "apikey": SUPABASE_KEY,
- "Authorization": "Bearer " + SUPABASE_KEY
+
+"apikey":SUPABASE_KEY,
+
+"Authorization":
+"Bearer " + SUPABASE_KEY,
+
+"Accept-Profile":
+SCHEMA
+
 };
 
+
+/* =========================
+تحميل المنتجات
+========================= */
+
 async function loadProducts(){
- try{
-   const res = await fetch(
-     `${SUPABASE_URL}/rest/v1/${TABLE}?select=*`,
-     {
-       headers:{
-         ...headers,
-         "Accept-Profile":SCHEMA
-       }
-     }
-   );
 
-   if(!res.ok) throw new Error(await res.text());
+try{
 
-   products = await res.json();
-   renderProducts(products);
- }catch(err){
-   console.error(err);
-   document.getElementById("productsGrid").innerHTML =
-   `<div class="empty">
-      تعذر تحميل المنتجات.<br>
-      <small>تأكدي من اسم الـ Schema والجدول و RLS في Supabase.</small>
-    </div>`;
- }
+const res = await fetch(
+
+`${SUPABASE_URL}/rest/v1/${TABLE}?select=*`,
+
+{
+
+method:"GET",
+
+headers:headers
+
 }
+
+);
+
+
+if(!res.ok){
+
+throw new Error(
+await res.text()
+);
+
+}
+
+
+products = await res.json();
+
+
+renderProducts(products);
+
+
+}catch(err){
+
+console.error(err);
+
+document.getElementById(
+"productsGrid"
+).innerHTML = `
+
+<div class="empty">
+
+تعذر تحميل المنتجات.
+
+<br>
+
+<small>
+تأكدي من إعدادات Supabase.
+</small>
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =========================
+عرض المنتجات
+========================= */
+
+function renderProducts(list){
+
+const grid =
+document.getElementById(
+"productsGrid"
+);
+
+document.getElementById(
+"count"
+).textContent =
+list.length + " منتجات";
+
+
+if(!list.length){
+
+grid.innerHTML = `
+
+<div class="empty">
+لا توجد منتجات حالياً ♡
+</div>
+
+`;
+
+return;
+
+}
+
+
+grid.innerHTML =
+list.map(p => {
+
+const originalIndex =
+products.findIndex(
+item => String(item.id) === String(p.id)
+);
+
+
+/*
+إذا لم يوجد id نستخدم الاسم
+كحل احتياطي.
+*/
+
+const index =
+originalIndex >= 0
+?
+originalIndex
+:
+products.indexOf(p);
+
+
+return `
+
+<article class="card">
+
+<div class="pic">
+
+<img
+src="${escapeAttr(p.image_url)}"
+alt="${escapeAttr(p.name || 'Yaso Collection')}"
+onerror="this.src='https://placehold.co/700x700/f1e5d5/98713b?text=YASO'"
+>
+
+<button
+class="fav"
+onclick="toggleFav(this)"
+>
+♡
+</button>
+
+</div>
+
+
+<div class="info">
+
+<h3>
+${escapeHTML(
+p.name || "منتج Yaso"
+)}
+</h3>
+
+<div
+style="
+color:#d79624;
+font-size:13px;
+margin-bottom:3px;
+"
+>
+★★★★★
+</div>
+
+
+<div class="prix">
+
+${Number(p.prix || 0)
+.toLocaleString("fr-DZ")}
+
+دج
+
+</div>
+
+
+<button
+class="add"
+onclick="addCart(${index})"
+>
+
+أضيفي للسلة 🛍
+
+</button>
+
+</div>
+
+</article>
+
+`;
+
+}).join("");
+
+}
+
+
+/* =========================
+إضافة للسلة
+========================= */
+
+function addCart(index){
+
+const p =
+products[index];
+
+if(!p){
+
+console.error("Product not found");
+
+return;
+
+}
+
+
+/*
+نستخدم id إذا كان موجوداً،
+وإلا نستخدم الاسم + الصورة.
+*/
+
+const key =
+p.id !== undefined
+?
+String(p.id)
+:
+String(p.name) + "|" + String(p.image_url);
+
+
+const found =
+cart.find(item => item.key === key);
+
+
+if(found){
+
+found.qty++;
+
+}else{
+
+cart.push({
+
+key:key,
+
+name:p.name,
+
+prix:Number(p.prix) || 0,
+
+image_url:p.image_url,
+
+qty:1
+
+});
+
+}
+
+
+saveCart();
+
+renderCart();
+
+openCart();
+
+}
+
+
+/* =========================
+السلة
+========================= */
+
 function renderCart(){
- const box=document.getElementById("cartItems");
 
- if(!cart.length){
-   box.innerHTML='<p style="text-align:center;padding:40px">السلة فارغة ♡</p>';
- }else{
+const box =
+document.getElementById(
+"cartItems"
+);
 
-   box.innerHTML=cart.map((p,i)=>`
-    <div class="cartItem">
 
-      <img src="${escapeAttr(p.image_url)}">
+if(!cart.length){
 
-      <div style="flex:1">
-        <b>${escapeHTML(p.name)}</b>
+box.innerHTML = `
 
-        <span>
-          ${Number(p.prix).toLocaleString("fr-DZ")} دج
-        </span>
+<p
+style="
+text-align:center;
+padding:40px;
+color:#8b755c;
+"
+>
 
-        <div style="
-          display:flex;
-          align-items:center;
-          gap:10px;
-          margin-top:8px;
-        ">
+السلة فارغة ♡
 
-          <button
-            onclick="changeQty(${i},-1)"
-            style="
-              width:28px;
-              height:28px;
-              border:1px solid #e5d4bb;
-              border-radius:50%;
-              background:#fff;
-              cursor:pointer;
-            ">−</button>
+</p>
 
-          <b>${p.qty}</b>
+`;
 
-          <button
-            onclick="changeQty(${i},1)"
-            style="
-              width:28px;
-              height:28px;
-              border:1px solid #e5d4bb;
-              border-radius:50%;
-              background:#fff;
-              cursor:pointer;
-            ">+</button>
+}else{
 
-        </div>
-      </div>
+box.innerHTML =
+cart.map((p,i)=>`
 
-      <button
-        onclick="removeCart(${i})"
-        style="
-          border:0;
-          background:none;
-          color:#a55;
-          font-size:20px;
-          cursor:pointer;
-        ">×</button>
+<div class="cartItem">
 
-    </div>
-   `).join("");
- }
+<img
+src="${escapeAttr(p.image_url)}"
+onerror="this.src='https://placehold.co/100x100/f1e5d5/98713b?text=YS'"
+>
 
- document.getElementById("total").textContent =
- cart.reduce(
-   (sum,p)=>sum+(Number(p.prix)||0)*p.qty,
-   0
- ).toLocaleString("fr-DZ")+" دج";
-}
+<div class="cartInfo">
 
- }
+<b>
+${escapeHTML(p.name)}
+</b>
 
- grid.innerHTML=list.map((p,i)=>`
-   <article class="card">
-     <div class="pic">
-       <img src="${escapeAttr(p.image_url)}"
-            onerror="this.src='https://placehold.co/700x700/f1e5d5/98713b?text=YASO'">
-       <button class="fav" onclick="toggleFav(this)">♡</button>
-     </div>
-     <div class="info">
-       <h3>${escapeHTML(p.name || "منتج Yaso")}</h3>
-       <div style="color:#d79624;font-size:13px">★★★★★</div>
-       <div class="prix">${Number(p.prix || 0).toLocaleString("fr-DZ")} دج</div>
-      <button class="add" onclick="addCart(${products.indexOf(p)})">
-       أضيفي للسلة 🛍
-      </button>
-     </div>
-   </article>
- `).join("");
-}
- function addCart(index){
- const p = products[index];
+<span>
+${Number(p.prix)
+.toLocaleString("fr-DZ")}
+دج
+</span>
 
- if(!p) return;
 
- const found = cart.find(x => x.id === p.id);
+<div class="qty">
 
- if(found){
-   found.qty++;
- }else{
-   cart.push({
-     ...p,
-     qty:1
-   });
- }
+<button
+onclick="changeQty(${i},-1)"
+>
+−
+</button>
 
- renderCart();
- openCart();
-}
+<b>
+${p.qty}
+</b>
+
+<button
+onclick="changeQty(${i},1)"
+>
++
+</button>
+
+</div>
+
+</div>
+
+
+<button
+class="remove"
+onclick="removeCart(${i})"
+>
+×
+</button>
+
+</div>
+
+`).join("");
 
 }
 
-function renderCart(){
- const box=document.getElementById("cartItems");
 
- if(!cart.length){
-   box.innerHTML='<p style="text-align:center;padding:40px">السلة فارغة ♡</p>';
- }else{
-   box.innerHTML=cart.map((p,i)=>`
-    <div class="cartItem">
-      <img src="${escapeAttr(p.image_url)}">
-      <div style="flex:1">
-       <b>${escapeHTML(p.name)}</b>
-       <span>${Number(p.prix).toLocaleString("fr-DZ")} دج × ${p.qty}</span>
-      </div>
-      <button onclick="removeCart(${i})"
-       style="border:0;background:none;color:#a55;font-size:20px">×</button>
-    </div>
-   `).join("");
- }
+const total =
+cart.reduce(
+(sum,p)=>
+sum +
+(Number(p.prix)||0) *
+p.qty,
+0
+);
 
- document.getElementById("total").textContent =
- cart.reduce((sum,p)=>sum+(Number(p.prix)||0)*p.qty,0)
- .toLocaleString("fr-DZ")+" دج";
+
+document.getElementById(
+"total"
+).textContent =
+
+total.toLocaleString("fr-DZ")
++
+" دج";
+
 }
 
-function removeCart(i){
- cart.splice(i,1);
- renderCart();
+
+/* =========================
+تغيير الكمية
+========================= */
+
+function changeQty(index,amount){
+
+if(!cart[index])
+return;
+
+cart[index].qty += amount;
+
+
+if(cart[index].qty <= 0){
+
+cart.splice(index,1);
+
 }
+
+
+saveCart();
+
+renderCart();
+
+}
+
+
+/* =========================
+حذف
+========================= */
+
+function removeCart(index){
+
+cart.splice(index,1);
+
+saveCart();
+
+renderCart();
+
+}
+
+
+/* =========================
+حفظ السلة في الهاتف
+========================= */
+
+function saveCart(){
+
+try{
+
+localStorage.setItem(
+"yaso_cart",
+JSON.stringify(cart)
+);
+
+}catch(e){
+
+console.error(e);
+
+}
+
+}
+
+
+/* =========================
+استرجاع السلة
+========================= */
+
+function loadCart(){
+
+try{
+
+const saved =
+localStorage.getItem(
+"yaso_cart"
+);
+
+if(saved){
+
+cart =
+JSON.parse(saved);
+
+}
+
+}catch(e){
+
+cart=[];
+
+}
+
+}
+
+
+/* =========================
+فتح السلة
+========================= */
 
 function openCart(){
- document.getElementById("cartPanel").classList.add("show");
- renderCart();
+
+document.getElementById(
+"cartPanel"
+).classList.add("show");
+
+renderCart();
+
 }
+
+
+/* =========================
+إغلاق السلة
+========================= */
+
 function closeCart(e){
- if(!e || e.target===document.getElementById("cartPanel"))
- document.getElementById("cartPanel").classList.remove("show");
+
+const panel =
+document.getElementById(
+"cartPanel"
+);
+
+
+if(
+!e ||
+e.target === panel
+){
+
+panel.classList.remove(
+"show"
+);
+
 }
+
+}
+
+
+/* =========================
+المفضلة
+========================= */
 
 function toggleFav(btn){
- btn.textContent=btn.textContent==="♡"?"♥":"♡";
+
+btn.textContent =
+btn.textContent === "♡"
+?
+"♥"
+:
+"♡";
+
 }
+
+
+/* =========================
+البحث
+========================= */
 
 function searchProducts(){
- const q=document.getElementById("searchInput").value.toLowerCase();
- renderProducts(products.filter(p=>
-   String(p.name||"").toLowerCase().includes(q)
- ));
+
+const q =
+document.getElementById(
+"searchInput"
+).value
+.toLowerCase()
+.trim();
+
+
+const result =
+products.filter(p =>
+
+String(p.name || "")
+.toLowerCase()
+.includes(q)
+
+);
+
+
+renderProducts(result);
+
 }
+
+
+/* =========================
+واتساب
+========================= */
+
+function checkout(){
+
+if(!cart.length){
+
+alert(
+"السلة فارغة ♡"
+);
+
+return;
+
+}
+
+
+let message =
+"مرحباً Yaso Collection 🌸%0A%0A";
+
+message +=
+"أريد طلب:%0A";
+
+
+cart.forEach(p=>{
+
+message +=
+`• ${encodeURIComponent(p.name)} × ${p.qty} — ${p.prix * p.qty} دج%0A`;
+
+});
+
+
+const total =
+cart.reduce(
+(sum,p)=>
+sum +
+(Number(p.prix)||0)*p.qty,
+0
+);
+
+
+message +=
+`%0Aالمجموع: ${total} دج`;
+
+
+window.open(
+"https://wa.me/213672936594?text="+message,
+"_blank"
+);
+
+}
+
+
+/* =========================
+حماية النص
+========================= */
 
 function escapeHTML(v){
- return String(v??"").replace(/[&<>"']/g,m=>({
- "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
- }[m]));
+
+return String(v ?? "")
+.replace(
+/[&<>"']/g,
+m=>({
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[m])
+
+);
+
 }
-function escapeAttr(v){return escapeHTML(v)}
+
+
+function escapeAttr(v){
+
+return escapeHTML(v);
+
+}
+
+
+/* تشغيل */
+
+loadCart();
+
+renderCart();
 
 loadProducts();
+
 </script>
 
 </body>
