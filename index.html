@@ -229,6 +229,19 @@ border-radius:50%;
 border:1px dashed #c59a5e
 }
 
+/* صورة الشعار الجديدة */
+
+.heroLogo{
+width:245px;
+height:245px;
+object-fit:contain;
+border-radius:50%;
+position:relative;
+z-index:2;
+}
+
+/* أبقينا هذا الكلاس احتياطياً فقط */
+
 .bigLogo{
 font-family:"Playfair Display";
 font-size:110px;
@@ -720,6 +733,11 @@ width:215px;
 height:215px
 }
 
+.heroLogo{
+width:185px;
+height:185px
+}
+
 .bigLogo{
 font-size:80px
 }
@@ -805,8 +823,6 @@ margin-bottom:30px
 </div>
 
 
-<!-- شعارك -->
-
 <div class="logo">
 
 <div class="logoMark">YS</div>
@@ -864,9 +880,11 @@ oninput="searchProducts()">
 
 <span class="flower f1">✿</span>
 
-<div class="bigLogo">
-YS
-</div>
+<img
+src="logo.jpg"
+class="heroLogo"
+alt="Yaso Collection"
+>
 
 <span class="flower f2">✿</span>
 
@@ -1242,12 +1260,6 @@ products.findIndex(
 item => String(item.id) === String(p.id)
 );
 
-
-/*
-إذا لم يوجد id نستخدم الاسم
-كحل احتياطي.
-*/
-
 const index =
 originalIndex >= 0
 ?
@@ -1343,12 +1355,6 @@ console.error("Product not found");
 return;
 
 }
-
-
-/*
-نستخدم id إذا كان موجوداً،
-وإلا نستخدم الاسم + الصورة.
-*/
 
 const key =
 p.id !== undefined
@@ -1534,7 +1540,7 @@ renderCart();
 
 
 /* =========================
-حذف
+حذف من السلة
 ========================= */
 
 function removeCart(index){
@@ -1549,7 +1555,7 @@ renderCart();
 
 
 /* =========================
-حفظ السلة في الهاتف
+حفظ السلة
 ========================= */
 
 function saveCart(){
